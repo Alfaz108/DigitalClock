@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Digital Clock</title>
+</head>
+<body onload="startTime()">
+   <section>
+    <div class="count">
+      <h1>Digital Clock</h1>
+       <div id="txt"></div>
+       </div>
+    </section>
+
+<script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  h=checkhours(h);
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10)
+   {
+    i = "0" + i
+  };
+   return i;
+}
+
+function checkhours(i){
+    if(i>12)
+    {
+        i=i-12
+        i="0"+i
+    };
+    return i;
+}
+</script>
+
+</body>
+</html>
